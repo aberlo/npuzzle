@@ -19,6 +19,24 @@ func atoi(str string) int {
 	return val
 }
 
+func findInOpenList(state *State, pq PriorityQueue) int {
+	for i := range pq {
+		if pq[i] == state {
+			return i
+		}
+	}
+	return -1
+}
+
+func findInClosedList(address *State, closedList []*State) bool {
+	for i := range closedList {
+		if closedList[i] == address {
+			return true
+		}
+	}
+	return false
+}
+
 func getIndexToMove(state []int) int {
 	for i := 0; i < len(state); i++ {
 		if state[i] == 0 {
